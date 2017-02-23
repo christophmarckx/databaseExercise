@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
-import javax.ws.rs.POST;
 
 /**
  * Created by christom on 23/02/2017.
@@ -24,6 +23,8 @@ public class CustomerController {
     public
     @ResponseBody
     void addCustomer (@RequestParam (value = "first name") String firstName,
-                      @RequestParam (value="last name") String lastName
+                      @RequestParam (value="last name") String lastName){
+        customerService.addCustomer(firstName, lastName);
+    }
 
 }

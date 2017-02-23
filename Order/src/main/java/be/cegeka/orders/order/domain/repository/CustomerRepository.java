@@ -1,4 +1,6 @@
-package be.cegeka.orders.order.domain.customers;
+package be.cegeka.orders.order.domain.repository;
+
+import be.cegeka.orders.order.domain.customers.Customer;
 
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -13,6 +15,10 @@ public class CustomerRepository {
 
     public List<Customer> getAll(){
         return entityManager.createQuery("select c from Customer c" , Customer.class).getResultList();
+    }
+
+    public void addCustomer(Customer customer){
+        entityManager.persist(customer);
     }
 
 }
